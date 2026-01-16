@@ -2,9 +2,9 @@
 FROM rockylinux:8-minimal
 
 # Install Apache HTTP server
-RUN yum -y update && \
-    yum -y install httpd && \
-    yum clean all
+RUN dnf -y update && \
+    dnf -y install httpd && \
+    dnf clean all
 
 # Add custom index.html
 RUN echo "hello Jenkins " > /var/www/html/index.html
