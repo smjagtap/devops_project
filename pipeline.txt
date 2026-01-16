@@ -1,0 +1,21 @@
+node {
+    def appImage
+
+    stage('Checkout') {
+        git branch: 'main',
+            url: 'https://github.com/smjagtap/devops_project.git'
+    }
+
+    stage('Build Docker Image') {
+        appImage = docker.build("centos-http-jenkins")
+    }
+
+    stage('Run Container') {
+        appImage.run("-p 8080:80")
+    }
+
+    stage('Verify') {
+        sh 'sleep 5'
+        sh 'curl -s http://localhost:8080 | grep "hello Jenkins"'
+    }
+}
