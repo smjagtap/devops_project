@@ -1,5 +1,5 @@
 # Use CentOS base image
-FROM centos:7
+FROM rockylinux:8-minimal
 
 # Install Apache HTTP server
 RUN yum -y update && \
