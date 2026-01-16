@@ -1,5 +1,5 @@
 # Use CentOS base image
-FROM rockylinux:8-minimal
+FROM rockylinux:8.9
 
 # Install Apache HTTP server
 RUN dnf -y update && \
